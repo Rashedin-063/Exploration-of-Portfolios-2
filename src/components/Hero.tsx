@@ -1,3 +1,5 @@
+import { FaLocationArrow } from "react-icons/fa";
+import Button from "./ui/Button";
 import { Spotlight } from "./ui/spotlite"
 import { TextGenerateEffect } from '@/components/ui/text-generate-effect';
 
@@ -10,7 +12,7 @@ const Hero = () => {
           className='-top-40 -left-10 md:-left-32 md:-top-20 h-screen'
           fill='white'
         />
-        <Spotlight className='top-10 left-full h-[80vh]' fill='purple' />
+        <Spotlight className='top-10 left-full h-[80vh]' fill='blue' />
         <Spotlight className='top-28 left-80 h-[80vh] w-[50vw]' fill='blue' />
       </div>
 
@@ -36,7 +38,17 @@ const Hero = () => {
             className='text-center text-[40px] md:text-5xl lg:text-6xl'
           />
 
-          <p className="text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl">Hi, I&apos;m Rashedin Islam, a Next.js Developer based in Bangladesh</p>
+          <p className='text-center md:tracking-wider mb-4 text-sm md:text-lg lg:text-2xl'>
+            Hi, I&apos;m Rashedin Islam, a Next.js Developer based in Bangladesh
+          </p>
+
+          <a href='#about'>
+            <Button
+              title='Show my  work'
+              icon={<FaLocationArrow />}
+              position='right'
+            />
+          </a>
         </div>
       </div>
     </div>
