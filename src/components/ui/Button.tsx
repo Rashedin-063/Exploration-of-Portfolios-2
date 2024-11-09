@@ -10,7 +10,6 @@ const Button: React.FC<ButtonProps> = ({
   title,
   icon,
   position,
-  handleClick,
   otherClasses,
 }) => {
   return (
