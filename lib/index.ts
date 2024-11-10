@@ -23,3 +23,5 @@ function getOlderPerson(person1: Person, person2: Person): Person {
     return person2;
   }
 }
+
+console.log(getOlderPerson(newPerson, newPerson2)); // Output: { name: 'John Doe', age: 30 }
