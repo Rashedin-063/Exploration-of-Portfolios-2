@@ -1,20 +1,17 @@
-"use client"
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
- import { IoCopyOutline } from 'react-icons/io5';
+import { IoCopyOutline } from "react-icons/io5";
 
 // Also install this npm i --save-dev @types/react-lottie
 // import Lottie from "react-lottie";
 
-import { cn } from "@/utils/cn";
+import { cn } from "@/lib/utils";
 
 
-// import { BackgroundGradientAnimation } from "./GradientBg";
-// import GridGlobe from "./GridGlobe";
-// import animationData from "@/data/confetti.json";
-// import MagicButton from "../MagicButton";
-import Button from "@/components/ui/Button";
 import { BackgroundGradientAnimation } from "./GradientBg";
+import GridGlobe from "./GridGlobe";
+// import animationData from "@/data/confetti.json";
+import MagicButton from "../MagicButton";
 
 export const BentoGrid = ({
   className,
@@ -64,7 +61,7 @@ export const BentoGridItem = ({
   // const defaultOptions = {
   //   loop: copied,
   //   autoplay: copied,
-  //   // animationData: animationData,
+  //   animationData: animationData,
   //   rendererSettings: {
   //     preserveAspectRatio: "xMidYMid slice",
   //   },
@@ -115,7 +112,6 @@ export const BentoGridItem = ({
             />
           )}
         </div>
-
         {id === 6 && (
           // add background animation , remove the p tag
           <BackgroundGradientAnimation>
@@ -185,10 +181,11 @@ export const BentoGridItem = ({
                   }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
+
                 {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
               </div>
 
-              <Button
+              <MagicButton
                 title={copied ? "Email is Copied!" : "Copy my email address"}
                 icon={<IoCopyOutline />}
                 position="left"
