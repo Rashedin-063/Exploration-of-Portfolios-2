@@ -9,7 +9,9 @@ import Grid from "@/components/Grid";
 // import Approach from "@/components/Approach";
 // import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
+
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
+import { ExpandableCardDemo } from "@/components/ExpandableCardDemo";
 
 const Home = () => {
   return (
@@ -18,7 +20,8 @@ const Home = () => {
         <FloatingNav navItems={navItems} />
         <Hero />
         <Grid />
-        <RecentProjects />
+        {/* <RecentProjects /> */}
+        <ExpandableCardDemo/> 
       </div>
     </main>
   );
