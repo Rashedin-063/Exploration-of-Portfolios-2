@@ -1,17 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import { useState } from "react";
 import { FaReact, FaNodeJs, FaDownload } from "react-icons/fa";
 import { SiExpress,  SiTypescript, SiNextdotjs, SiMongodb } from "react-icons/si";
 
 // Also install this npm i --save-dev @types/react-lottie
-// import Lottie from "react-lottie";
+import Lottie from "react-lottie";
 
 import { cn } from "@/lib/utils";
 
 
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
-// import animationData from "@/data/confetti.json";
+import animationData from "@/data/confetti.json";
 import MagicButton from "../MagicButton";
 
 export const BentoGrid = ({
@@ -68,22 +69,22 @@ export const BentoGridItem = ({
   const [downloaded, setDownloaded] = useState(false);
   const [copied, setCopied] = useState(false);
 
-  // const defaultOptions = {
-  //   loop: copied,
-  //   autoplay: copied,
-  //   animationData: animationData,
-  //   rendererSettings: {
-  //     preserveAspectRatio: "xMidYMid slice",
-  //   },
-  // };
+  const defaultOptions = {
+    loop: downloaded,
+    autoplay: downloaded,
+    animationData: animationData,
+    rendererSettings: {
+      preserveAspectRatio: 'xMidYMid slice',
+    },
+  };
 
   const handleCopy = () => {
-    const link = document.createElement('a');
-    link.href = '/resume.pdf'; // Path to your PDF file in the public folder
-    link.download = 'Resume_Rashedin_Islam.pdf'; // Specify the file name for download
-    document.body.appendChild(link);
-    link.click();
-    document.body.removeChild(link);
+    // const link = document.createElement('a');
+    // link.href = '/resume.pdf'; // Path to your PDF file in the public folder
+    // link.download = 'Resume_Rashedin_Islam.pdf'; // Specify the file name for download
+    // document.body.appendChild(link);
+    // link.click();
+    // document.body.removeChild(link);
     setDownloaded(true)
   };
 
@@ -195,20 +196,21 @@ export const BentoGridItem = ({
                   downloaded ? 'block' : 'block'
                 }`}
               >
-                {/* <img src="/confetti.gif" alt="confetti" /> */}
+                <img src='/confetti.gif' alt='confetti' />
 
-                {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
+                <Lottie options={defaultOptions} height={200} width={400} />
               </div>
               <a href='/resume.pdf' download='Resume_Rashedin_Islam.pdf'>
+                {' '}
+             
               <MagicButton
                 title={downloaded ? 'Downloaded!' : 'Download My Resume'}
                 icon={<FaDownload />}
                 position='left'
-                // handleClick={handleCopy}
-                otherClasses='!bg-[#161A31] !w-[500px]'
-              />
-              </a>
-              
+                handleClick={handleCopy}
+                otherClasses='!bg-[#161A31]'
+                />
+                 </a>
             </div>
           )}
         </div>
