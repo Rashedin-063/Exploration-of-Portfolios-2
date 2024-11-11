@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useState } from "react";
-import { IoCopyOutline } from "react-icons/io5";
-import { FaReact, FaNodeJs } from "react-icons/fa";
+import { FaReact, FaNodeJs, FaDownload } from "react-icons/fa";
 import { SiExpress,  SiTypescript, SiNextdotjs, SiMongodb } from "react-icons/si";
 
 // Also install this npm i --save-dev @types/react-lottie
@@ -55,6 +54,7 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
+  // list items --> need to separate into data
   const leftLists = [
     { text: 'ReactJS', icon: <FaReact className="text-blue-600 text-[17px] lg:text-[19px] font-semibold animate-spin " style={{ animationDuration: '3s' }}/> },
     { text: 'Express', icon: <SiExpress className="text-[18px] lg:text-[20px] text-black font-semibold skew-x-2 -skew-y-6" /> },
@@ -65,6 +65,7 @@ export const BentoGridItem = ({
   ];
 
 
+  const [downloaded, setDownloaded] = useState(false);
   const [copied, setCopied] = useState(false);
 
   // const defaultOptions = {
@@ -77,9 +78,13 @@ export const BentoGridItem = ({
   // };
 
   const handleCopy = () => {
-    const text = "hsu@jsmastery.pro";
-    navigator.clipboard.writeText(text);
-    setCopied(true);
+    const link = document.createElement('a');
+    link.href = '/resume.pdf'; // Path to your PDF file in the public folder
+    link.download = 'Resume_Rashedin_Islam.pdf'; // Specify the file name for download
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setDownloaded(true)
   };
 
   return (
@@ -157,9 +162,11 @@ export const BentoGridItem = ({
           {/* {id === 2 && <GridGlobe />} */}
 
           {/* Tech stack list div */}
-          {id === 1 && (
-            <div className='flex flex-col gap-1 lg:gap-5 w-fit absolute top-24 lg:top-36'>
-              {/* tech stack lists */}
+          {/* 
+          
+           {id === 1 && (
+            <div className='flex flex-col gap-1 lg:gap-5 w-fit absolute top-28 lg:top-40'>
+  //  tech stack list
               <div className='grid grid-cols-3 lg:grid-cols-4 gap-x-3 gap-y-5 md:gap-3 lg:gap-8'>
                 {leftLists.map((item, i) => (
                   <span
@@ -173,6 +180,10 @@ export const BentoGridItem = ({
               </div>
             </div>
           )}
+
+          
+          */}
+
           {id === 6 && (
             <div className='mt-5 relative'>
               {/* button border magic from tailwind css buttons  */}
@@ -181,21 +192,23 @@ export const BentoGridItem = ({
               {/* add handleCopy() for the copy the text */}
               <div
                 className={`absolute -bottom-5 right-0 ${
-                  copied ? 'block' : 'block'
+                  downloaded ? 'block' : 'block'
                 }`}
               >
                 {/* <img src="/confetti.gif" alt="confetti" /> */}
 
                 {/* <Lottie options={defaultOptions} height={200} width={400} /> */}
               </div>
-
+              <a href='/resume.pdf' download='Resume_Rashedin_Islam.pdf'>
               <MagicButton
-                title={copied ? 'Email is Copied!' : 'Copy my email address'}
-                icon={<IoCopyOutline />}
+                title={downloaded ? 'Downloaded!' : 'Download My Resume'}
+                icon={<FaDownload />}
                 position='left'
-                handleClick={handleCopy}
-                otherClasses='!bg-[#161A31]'
+                // handleClick={handleCopy}
+                otherClasses='!bg-[#161A31] !w-[500px]'
               />
+              </a>
+              
             </div>
           )}
         </div>
