@@ -204,7 +204,8 @@ export const BentoGridItem = ({
                 {' '}
              
               <MagicButton
-                title={downloaded ? 'Downloaded!' : 'Download My Resume'}
+                  title={downloaded ? 'Downloaded!' : 'Download My Resume'}
+                  disabled={downloaded}
                 icon={<FaDownload />}
                 position='left'
                 handleClick={handleCopy}

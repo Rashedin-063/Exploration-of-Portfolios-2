@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import "./globals.css";
 import { ThemeProvider } from "./provider";
+import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,7 +23,9 @@ export default function RootLayout({
         <link rel="icon" href="/jsm-logo.png" sizes="any" />
       </head>
       <body className={inter.className}>
-        <ThemeProvider
+        <TracingBeam>
+      
+             <ThemeProvider
           attribute="class"
           defaultTheme="dark"
           enableSystem
@@ -30,6 +33,9 @@ export default function RootLayout({
         >
           {children}
         </ThemeProvider>
+
+        </TracingBeam>
+       
       </body>
     </html>
   );
