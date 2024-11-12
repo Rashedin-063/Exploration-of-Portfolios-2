@@ -132,7 +132,7 @@ export function ExpandableCardDemo() {
       </AnimatePresence>
 
      
-         <div className="grid grid-cols-1 md:grid-cols-2">
+         <div className="grid grid-cols-1 md:grid-cols-2 md:gap-8 lg:gap-16">
            {projects.map((card, index) => (
             <motion.div
               layoutId={`card-${card.title}-${id}`}
@@ -140,7 +140,7 @@ export function ExpandableCardDemo() {
               onClick={() => setActive(card)}
               className=''
             >
-              <div className='flex flex-col items-center justify-center p-4 gap-16 mt-10'>
+              <div className='flex flex-col items-center justify-center p-4 gap-16 mt-10 group border border-gray-600 rounded-lg'>
                 <motion.div layoutId={`image-${card.title}-${id}`}>
                   <div className='relative  '>
                     <div
@@ -152,7 +152,7 @@ export function ExpandableCardDemo() {
                     <img
                       src={card.img}
                       alt='cover'
-                      className='z-10 absolute top-0'
+                      className='z-10 absolute top-0 group-hover:scale-105 group-hover:duration-300 p-2'
                     />
                    </div>
                    <div className="flex items-center mt-8">
