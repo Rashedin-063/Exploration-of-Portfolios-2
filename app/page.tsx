@@ -9,6 +9,7 @@ import Grid from "@/components/Grid";
 // import Approach from "@/components/Approach";
 // import Experience from "@/components/Experience";
 import RecentProjects from "@/components/RecentProjects";
+import Clients from "@/components/Clients";
 
 import { FloatingNav } from "@/components/ui/FloatingNavbar";
 import { ExpandableCardDemo } from "@/components/ExpandableCardDemo";
@@ -22,6 +23,7 @@ const Home = () => {
         <Grid />
         {/* <RecentProjects /> */}
         <ExpandableCardDemo/> 
+        <Clients/>
       </div>
     </main>
   );

@@ -138,9 +138,7 @@ export const BentoGridItem = ({
         <div
           className={cn(
             titleClassName,
-            `${
-              id === 1 ? 'min-h-60' : 'min-h-40'
-            } group-hover/bento:translate-x-2 transition duration-200 relative md:h-full  flex flex-col px-5 p-5 lg:p-10`
+            `${id === 1 ? 'min-h-60' : id === 2 ? 'min-h-40' : 'min-h-40'} group-hover/bento:translate-x-2 transition duration-200 relative md:h-full  flex flex-col px-5 p-5 lg:p-10 border-2 border-gray-800`
           )}
         >
           {/* change the order of the title and des, font-extralight, remove text-xs text-neutral-600 dark:text-neutral-300 , change the text-color */}
